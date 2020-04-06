@@ -2,6 +2,7 @@
 
 - - -
 
+## Embedded Programming
 ## nrf52832(nordic사) + st7586s 를 이용해 만든 게임
 
 - - -
@@ -29,6 +30,14 @@
     * 마친 후에 든 생각이지만 각 Object들을 struct로 구성하여 개발했으면 Code가 훨씬 줄었을 것이다.
     
      - - - 
+     
+### 플레이 영상
+
+#### 클릭하면 실행됩니다.
+
+[![Video Label](http://img.youtube.com/vi/oYZV6ba-SUc/0.jpg)](https://youtu.be/oYZV6ba-SUc?t=0s)
+
+- - -
      
 ### 마친 후
 

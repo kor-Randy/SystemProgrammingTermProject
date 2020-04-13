@@ -42,14 +42,12 @@
 ### Issue
 
 * Interrupt를 처리하는 데에 시간을 많이 사용했다.
-  * Timer Interrupt와 IO장치의 Interrupt를 동시에 Interrupt 큐에 담았을 때 IO Interrupt는 Event가 발생하지 않았음.
-    * 해결을 위해 Interrupt Event Handler를 전면 수정하게 됨.
-  
-  - - - 
-  
-* Interrupt의 문제를 해결하고 난 뒤 IO장치의 Interrupt가 들어오면 Timer가 멈추는 현상 발생.
-  * 이후 Library를 찾아보니 Schedule을 다룰 수 있는 함수를 발견
-    * app_sched_execute() 메소드를 이용해 Interrupt를 처리
+  * Timer Interrupt와 IO장치의 Interrupt를 동시에 사용해야 했습니다. 
+  * Button을 통해 Interrupt 큐에 I/O Interrupt Event를 담았을 때 Event가 발생하지 않았음.
+    * Interrupt 큐내에서 I/O Event를 직접 처리하게끔 구현하여 I/O Event 발생
+  * I/O Event는 발생하지만, Timer Event가 발생하지 않는 현상 발생
+    * Timer의 우선순위가 가장 높은 이유인 것을 찾음
+    * Timer는 지속적으로 유지돼야하고, I/O는 입력이 있을 때만 발생하므로, I/O Interrupt의 우선순위를 Timer보다 높여 I/O Event를 우선 처리
     
      - - - 
     
